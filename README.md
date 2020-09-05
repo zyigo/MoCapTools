@@ -1,3 +1,3 @@
-# AMC-ASF-Tools ![example](https://github.com/zyigo/AMC-ASF-Tools/workflows/CI/badge.svg)
+# AMC ASF Tools ![Unit Tests](https://github.com/zyigo/AMC-ASF-Tools/workflows/CI/badge.svg)
 
-A MATLAB Toolbox for importing motion capture AMC and ASF files.
+This repo is for a MATLAB Toolbox capable of importing motion capture AMC and ASF files.
