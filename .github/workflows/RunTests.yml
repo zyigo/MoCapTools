@@ -22,12 +22,13 @@ jobs:
 
     # Use A Github Action to perform tests
     - name: run unit tests and documentation tests, generate coverage report
-      uses: joergbrech/moxunit-action@v1.1
+      uses: joergbrech/moxunit-action@master
       with:
         tests: AMC-ASF-Tools/tests
         src: AMC-ASF-Tools/tbx/AMC-ASF-Tools/
         args: AMC-ASF-Tools/tests/data
-        pkg: io
+        pkg: image io
+        ext: external
         with_coverage: true
         doc_tests: true
         cover_xml_file: coverage.xml
