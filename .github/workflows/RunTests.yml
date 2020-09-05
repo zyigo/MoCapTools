@@ -25,8 +25,8 @@ jobs:
       uses: joergbrech/moxunit-action@v1.1
       with:
         tests: AMC-ASF-Tools/tests
+        src: AMC-ASF-Tools/tbx/AMC-ASF-Tools/
         data: AMC-ASF-Tools/tests/data
-        src: AMC-ASF-Tools/tbx/AMC-ASF-Tools
         with_coverage: true
         doc_tests: true
         cover_xml_file: coverage.xml
