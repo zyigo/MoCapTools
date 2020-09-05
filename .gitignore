@@ -1,2 +1,6 @@
-# Specify filepatterns you want git to ignore.
-AMC-ASF-Tools/releases/
+# Ignore Releases
+AMC-ASF-Tools/[Rr]eleases/
+
+# Ignore following file types:
+**.mltbx
+**.asv

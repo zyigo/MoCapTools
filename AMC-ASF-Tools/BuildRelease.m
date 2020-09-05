@@ -1,4 +1,4 @@
-function release()
+function BuildRelease()
 %RELEASE An example release function to build, test and package a MATLAB
 %toolbox. The release version is assumed to be up to date in the
 %'Contents.m' file. 
@@ -33,7 +33,7 @@ end
 %% Build documentation & examples
 fprintf( 1, 'Generating documentation & examples...' );
 try
-    % Do something;
+    % TODO Setup documentation generation.
     fprintf( 1, ' Done.\n' );
 catch e
     fprintf( 1, ' failed.\n' );
@@ -60,11 +60,14 @@ end
 %%  Package and rename.
 fprintf( 1, 'Packaging...' );
 try
-    prj = fullfile( cfdir, [ tbxname, '.prj'] );
-    matlab.addons.toolbox.packageToolbox( prj );
+    prj = fullfile( cfdir, [ 'Packager', '.prj'] );
+    matlab.addons.toolbox.packageToolbox( [ 'Packager', '.prj'] );
     oldMltbx = which( [tbxname '.mltbx'] );
+    if ~exist(fullfile(fileparts( tbxDir ), 'releases',filesep), 'dir')
+       mkdir(fullfile(fileparts( tbxDir ), 'releases', filesep));
+    end
     newMltbx = fullfile( fileparts( tbxDir ), 'releases', [tbxname ' v' v.Version '.mltbx'] );
-    movefile( oldMltbx, newMltbx )
+    movefile( oldMltbx, newMltbx );
     fprintf( 1, ' Done.\n' );
 catch e
     fprintf( 1, ' failed.\n' );
