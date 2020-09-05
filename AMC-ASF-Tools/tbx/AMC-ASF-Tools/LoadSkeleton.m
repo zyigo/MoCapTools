@@ -211,7 +211,7 @@ documentation = join(documentation');
 end
 
 function checkFileCorrect(path)
-path = string(path);
+%path = string(path);
 fn = split(path,'/');
 fn = fn(end);
 fn = split(fn(end),'.');
