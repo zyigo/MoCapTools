@@ -60,7 +60,6 @@ end
 %%  Package and rename.
 fprintf( 1, 'Packaging...' );
 try
-    prj = fullfile( cfdir, [ 'Packager', '.prj'] );
     matlab.addons.toolbox.packageToolbox( [ 'Packager', '.prj'] );
     oldMltbx = which( [tbxname '.mltbx'] );
     if ~exist(fullfile(fileparts( tbxDir ), 'releases',filesep), 'dir')
