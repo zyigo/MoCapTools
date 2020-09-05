@@ -26,14 +26,14 @@ jobs:
       with:
         tests: AMC-ASF-Tools/tests
         src: AMC-ASF-Tools/tbx/AMC-ASF-Tools
-        with_coverage: false
-        doc_tests: false
-        #cover_xml_file: coverage.xml
+        with_coverage: true
+        doc_tests: true
+        cover_xml_file: coverage.xml
 
     # Store the coverage report as an artifact
-    #- name: Store Coverage report as artifact
-    #  uses: actions/upload-artifact@v1
-    #  with:
-    #    name: coverage_xml_file
-    #    path: coverage.xml
+    - name: Store Coverage report as artifact
+      uses: actions/upload-artifact@v1
+      with:
+        name: coverage_xml_file
+        path: coverage.xml
     
