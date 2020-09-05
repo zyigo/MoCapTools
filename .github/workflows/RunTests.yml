@@ -15,8 +15,8 @@ jobs:
   test-with-tests-arg:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout repo
-      uses: actions/checkout@v2
+    - name: MOxUnit Action
+      uses: joergbrech/moxunit-action@v1.1
     - name: Run unit tests
       uses: ./
       with:
