@@ -18,7 +18,9 @@ jobs:
     - name: MOxUnit Action
       uses: joergbrech/moxunit-action@v1.1
       with:
-        tests: /AMC-ASF-Tools/tests
-        src: /AMC-ASF-Tools/tbx/AMC-ASF-Tools
-        doc_tests: false
-        with_coverage: true
+        tests: tests
+        src: tests/src  
+        #tests: /AMC-ASF-Tools/tests
+        #src: /AMC-ASF-Tools/tbx/AMC-ASF-Tools
+        #doc_tests: false
+        #with_coverage: true
