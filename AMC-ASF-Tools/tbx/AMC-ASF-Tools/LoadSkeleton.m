@@ -3,7 +3,7 @@ function skel = LoadSkeleton(asfFile)
 
 checkFileCorrect(asfFile);
 
-asfFile = convertCharsToStrings(char(asfFile));
+asfFile = string(asfFile);
 fn = split(asfFile,'/');
 fn = fn(end);
 fn = split(fn(end),'.');
@@ -211,7 +211,7 @@ documentation = join(documentation');
 end
 
 function checkFileCorrect(path)
-path = convertCharsToStrings(char(path));
+path = string(path);
 fn = split(path,'/');
 fn = fn(end);
 fn = split(fn(end),'.');
