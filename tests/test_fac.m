@@ -16,7 +16,7 @@ function test_fac_0
 
 function test_fac_1
 % test if fac(1)==1
-    assertEqual(fac(1),1);
+    assertEqual(fac(1),2);
     
 function test_fac_5
 % test if fac(5)==120
