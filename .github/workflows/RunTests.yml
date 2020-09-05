@@ -27,21 +27,15 @@ jobs:
         tests: AMC-ASF-Tools/tests
         src: AMC-ASF-Tools/tbx/AMC-ASF-Tools/
         args: AMC-ASF-Tools/tests/data
-        pkg: image io
-        ext: external
         with_coverage: true
-        doc_tests: true
+        doc_tests: false
         cover_xml_file: coverage.xml
-
-    # Store the coverage report as an artifact
-    - name: Store Coverage report as artifact
-      uses: actions/upload-artifact@v1
+    
+    - uses: actions/upload-artifact@v1
       with:
-        name: coverage_xml_file
+        name: coverage_file
         path: coverage.xml
         
-    - name: Assess coverage 
-      uses: codecov/codecov-action@v1
+    - uses: codecov/codecov-action@v1
       with:
         file: ./coverage.xml
-    
