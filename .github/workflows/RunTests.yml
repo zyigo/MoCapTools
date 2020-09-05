@@ -27,6 +27,7 @@ jobs:
         tests: AMC-ASF-Tools/tests
         src: AMC-ASF-Tools/tbx/AMC-ASF-Tools/
         args: AMC-ASF-Tools/tests/data
+        pkg: io
         with_coverage: true
         doc_tests: true
         cover_xml_file: coverage.xml
