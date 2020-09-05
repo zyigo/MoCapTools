@@ -12,7 +12,7 @@ initTestSuite;
 
 function test_LoadSkeleton_0
 % test if loaded skeleton matches expected data
-%f_skel = LoadSkeletion('data/02.asf');
+f_skel = LoadSkeletion('AMC-ASF-Tools/tests/data/02.asf');
 saveVarsMat = load('AMC-ASF-Tools/tests/data/matlab.mat');
 test_skel = saveVarsMat.ans; 
 %disp(test_skel);
