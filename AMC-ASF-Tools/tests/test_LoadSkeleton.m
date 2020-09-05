@@ -15,6 +15,6 @@ function test_LoadSkeleton_0
 %f_skel = LoadSkeletion('data/02.asf');
 saveVarsMat = load('AMC-ASF-Tools/tests/data/matlab.mat');
 test_skel = saveVarsMat.ans; 
-disp(test_skel);
+%disp(test_skel);
 %assertEqual(test_skel,f_skel);
 assertEqual(1,1);
