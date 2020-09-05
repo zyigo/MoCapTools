@@ -11,5 +11,8 @@ initTestSuite;
 %%%%%%%%%%%%%%%%%%%%%%%
 
 function test_LoadSkeleton_0
-% test if fac(0)==1
-assertEqual(1,1);
+% test if loaded skeleton matches expected data
+f_skel = LoadSkeletion('data/02.asf');
+saveVarsMat = load('matlab.mat');
+test_skel = saveVarsMat.ans; 
+assertEqual(test_skel,f_skel);
