@@ -4,6 +4,11 @@ function [str,chr] = ImportFile(file)
 [fid,~] = fopen(file);
 [file,~] = textscan(fid,'%s','delimiter','\n');
 [~] = fclose(fid);
+
+
+file(strcmp('',file)) = [];
+
 str = string(file{1});
 chr = char(file{1});
+
 end
