@@ -5,10 +5,9 @@ function [str,chr] = ImportFile(file)
 [file,~] = textscan(fid,'%s','delimiter','\n');
 [~] = fclose(fid);
 
-
-file(strcmp('',file)) = [];
-
 str = string(file{1});
 chr = char(file{1});
 
+chr(strcmp('',chr)) = [];
+str(strcmp("",str)) = [];
 end
