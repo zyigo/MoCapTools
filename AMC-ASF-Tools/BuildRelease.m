@@ -1,7 +1,7 @@
 function BuildRelease()
 %RELEASE An example release function to build, test and package a MATLAB
 %toolbox. The release version is assumed to be up to date in the
-%'Contents.m' file. 
+%'Contents.m' file.
 %
 %  Copyright 2016-2020 The MathWorks, Inc.
 
@@ -24,9 +24,17 @@ switch numel( v )
         error( '%s not found.', tbxname );
     case 1
         % OK so far
-        fprintf( 1, ' Done.\n' );
+        fprintf( 1, ' Okay.\n' );
     otherwise
         fprintf( 1, ' failed.\n' );
+        toolboxes = matlab.addons.toolbox.installedToolboxes;
+        toolboxes.Name
+        
+%         fun = @(x) toolboxes(x).Name == tbxname;
+%         tf2 = arrayfun(fun, 1:numel(toolboxes),'UniformOutput',false);
+%         tf2 = cell2mat(tf2);
+%         tf2 = any(tf2(1:end,:));
+%         matlab.addons.toolbox.uninstallToolbox(toolboxes(tf2))
         error( 'There are multiple copies of ''%s'' on the MATLAB path.', tbxname );
 end
 
@@ -63,7 +71,7 @@ try
     matlab.addons.toolbox.packageToolbox( [ 'Packager', '.prj'] );
     oldMltbx = which( [tbxname '.mltbx'] );
     if ~exist(fullfile(fileparts( tbxDir ), 'releases',filesep), 'dir')
-       mkdir(fullfile(fileparts( tbxDir ), 'releases', filesep));
+        mkdir(fullfile(fileparts( tbxDir ), 'releases', filesep));
     end
     newMltbx = fullfile( fileparts( tbxDir ), 'releases', [tbxname ' v' v.Version '.mltbx'] );
     movefile( oldMltbx, newMltbx );

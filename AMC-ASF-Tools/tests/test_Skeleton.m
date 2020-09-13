@@ -1,4 +1,4 @@
-function test_suite=test_LoadMultipleSkeletons %#ok<STOUT>
+function test_suite=test_Skeleton %#ok<STOUT>
 % initialize unit tets
 try
     test_functions=localfunctions(); %#ok<NASGU>
@@ -10,6 +10,6 @@ initTestSuite;
 %     Basic tests     %
 %%%%%%%%%%%%%%%%%%%%%%%
 
-function test_LoadMultipleSkeletons_0
-% test if fac(0)==1
+function test_Skeleton_0
+% TODO Develop test using TestFile.txt
 assertEqual(1,1);
