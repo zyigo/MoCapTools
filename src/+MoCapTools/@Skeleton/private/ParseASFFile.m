@@ -59,12 +59,12 @@ for i = 1:length(hier)
         assert(t(1) == 'root','Root must be the first identified in the hierarchy.');
         obj.Children = t(2:end);
         for j = 2:length(t)
-            obj.Joints(t(j)) = Joint(t(j),"root");
+            obj.Joints(t(j)) = MoCapTools.Joint(t(j),"root");
         end
     else
         children = strings(1,length(t)-1);
         for j = 2:length(t)
-            obj.Joints(t(j)) = Joint(t(j),t(1));
+            obj.Joints(t(j)) = MoCapTools.Joint(t(j),t(1));
             children(j-1) = t(j);
         end
         
