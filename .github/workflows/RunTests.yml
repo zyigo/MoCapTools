@@ -26,15 +26,15 @@ jobs:
       with:
         tests: src/Tests
         src: src
-        with_coverage: true
+        with_coverage: false
         doc_tests: false
-        cover_xml_file: coverage.xml
+        #cover_xml_file: coverage.xml
     
-    - uses: actions/upload-artifact@v1
-      with:
-        name: coverage_file
-        path: coverage.xml
+    #- uses: actions/upload-artifact@v1
+    #  with:
+    #    name: coverage_file
+    #    path: coverage.xml
         
-    - uses: codecov/codecov-action@v1
-      with:
-        file: ./coverage.xml
+    # - uses: codecov/codecov-action@v1
+    #  with:
+    #   file: ./coverage.xml
