@@ -24,9 +24,9 @@ jobs:
     - name: run unit tests and documentation tests, generate coverage report
       uses: joergbrech/moxunit-action@master
       with:
-        tests: AMC-ASF-Tools/tests
-        src: AMC-ASF-Tools/tbx/AMC-ASF-Tools/
-        args: AMC-ASF-Tools/tests/data
+        tests: src/Tests
+        src: src/+MoCapTools
+        args: AMC-ASF-Tools/Tests/TestData
         with_coverage: true
         doc_tests: false
         cover_xml_file: coverage.xml
