@@ -25,8 +25,7 @@ jobs:
       uses: joergbrech/moxunit-action@master
       with:
         tests: src/Tests
-        src: src/+MoCapTools
-        args: AMC-ASF-Tools/Tests/TestData
+        src: src
         with_coverage: true
         doc_tests: false
         cover_xml_file: coverage.xml
