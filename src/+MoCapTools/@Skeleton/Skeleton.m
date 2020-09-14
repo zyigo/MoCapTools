@@ -3,20 +3,20 @@ classdef (Sealed) Skeleton
     %   Detailed explanation goes here
     
     properties
-        Mass(1,1) double {mustBeReal, mustBeFinite}
-        Length(1,1) double {mustBeReal, mustBeFinite}
-        AngleType(1,:) char {mustBeMember(AngleType,{'deg','rad'})} = 'deg'
-        Version(1,1) double {mustBeReal, mustBeFinite,mustBeNonnegative}
-        Name(1,1) string
-        Subject(1,1) double {mustBeNonnegative, mustBeInteger}
-        Documentation(1,1) string
-        TranslationOrder(1,3) char {mustBeMember(TranslationOrder,{'xyz','xzy','yzx','yxz','zxy','zyx'})} = 'xyz'
-        RotationOrder(1,3) char {mustBeMember(RotationOrder,{'xyz','xzy','yzx','yxz','zxy','zyx'})} = 'xyz'
-        AxisOrder(1,3) char {mustBeMember(AxisOrder,{'xyz','xzy','yzx','yxz','zxy','zyx'})} = 'xyz'
-        Position(1,3) double {mustBeReal, mustBeFinite}
-        Orientation(1,3) double {mustBeReal, mustBeFinite}
-        Children(1,:) string
-        Joints(:,1) containers.Map
+        Mass%(1,1) double {mustBeReal, mustBeFinite}
+        Length%(1,1) double {mustBeReal, mustBeFinite}
+        AngleType%(1,:) char {mustBeMember(AngleType,{'deg','rad'})} = 'deg'
+        Version%(1,1) double {mustBeReal, mustBeFinite,mustBeNonnegative}
+        Name%(1,1) string
+        Subject%(1,1) double {mustBeNonnegative, mustBeInteger}
+        Documentation%(1,1) string
+        TranslationOrder%(1,3) char {mustBeMember(TranslationOrder,{'xyz','xzy','yzx','yxz','zxy','zyx'})} = 'xyz'
+        RotationOrder%(1,3) char {mustBeMember(RotationOrder,{'xyz','xzy','yzx','yxz','zxy','zyx'})} = 'xyz'
+        AxisOrder%(1,3) char {mustBeMember(AxisOrder,{'xyz','xzy','yzx','yxz','zxy','zyx'})} = 'xyz'
+        Position%(1,3) double {mustBeReal, mustBeFinite}
+        Orientation%(1,3) double {mustBeReal, mustBeFinite}
+        Children%(1,:) string
+        Joints%(:,1) containers.Map
     end
     
     properties (Access = private)

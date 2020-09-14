@@ -3,18 +3,18 @@ classdef (Sealed) Joint
     %   TODO Joint class documentation
     
     properties
-        Parent(1,1) string
-        Children(1,:) string
-        Name(1,1) string
-        ID(1,1) double {mustBeNonnegative, mustBeInteger}
-        Direction(1,3) double {mustBeReal, mustBeFinite}
-        Length(1,1) double {mustBeReal, mustBeFinite, mustBeNonnegative}
-        Axis(1,3) double {mustBeReal, mustBeFinite}
-        AxisOrder(1,3) char {mustBeMember(AxisOrder,...
-            {'xyz','xzy','yzx','yxz','zxy','zyx'})} = 'xyz'
-        Limits(:,:) double... 
-            {mustBeReal, mustBeFinite} %Test for 3x3 max are below
-        DoF(:,1) string
+        Parent%(1,1) string
+        Children%(1,:) string
+        Name%(1,1) string
+        ID%(1,1) double {mustBeNonnegative, mustBeInteger}
+        Direction%(1,3) double {mustBeReal, mustBeFinite}
+        Length%(1,1) double {mustBeReal, mustBeFinite, mustBeNonnegative}
+        Axis%(1,3) double {mustBeReal, mustBeFinite}
+        AxisOrder%(1,3) char {mustBeMember(AxisOrder,...
+            %{'xyz','xzy','yzx','yxz','zxy','zyx'})} = 'xyz'
+        Limits%(:,:) double... 
+            %{mustBeReal, mustBeFinite} %Test for 3x3 max are below
+        DoF%(:,1) string
     end
     
     methods
