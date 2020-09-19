@@ -17,18 +17,15 @@ for g = 1:length(groups)
             obj = GetDocumentation(obj, g, index, file);
         case "root"
             obj = GetRoot(obj, g, index, file);
-            %skel.Joints('root') = GetRoot(g, index, file);
         case "bonedata"
-            % store bone reference for later after processing hierarchy
+            % store bone reference for later after processing the hierarchy
             bonedataIndex = g;
-            %skel.Bones = GetBoneData(g, index, file);
         case "hierarchy"
             obj = GetHierarchyData(obj, g, index, file);
         otherwise
-            error('Additional section defined in the ASF that is not loadable by the LoadSkeleton function.');
+            error('Additional section defined in the ASF that is not loadable by the MoCapTools Package.');
     end
 end
-
 obj = GetBoneData(obj,bonedataIndex,index,file);
 end
 
