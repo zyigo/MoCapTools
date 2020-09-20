@@ -8,14 +8,10 @@ fn = split(filepath,'/');
 fn = fn(end);
 fn = split(fn(end),'.');
 
-if ~(fn(end) == "asf")
-    error('The skeleton file must be an ASF file.')
-end
-
-if ~(length(fn(1)) == 2 || ~isnan(str2double(fn(1))))
-    error('ASF File must be named IAW the format: "NN.asf",'+...
-          'where NN is the subject number.');
-end
+assert(fn(end) == "asf",'The skeleton file must be an ASF file.');
+assert(length(fn(1)) == 2 || ~isnan(str2double(fn(1))),...
+    ['ASF File must be named IAW the format: "NN.asf",', ...
+    'where NN is the subject number.']);
 
 %% Read File
 [fid,~] = fopen(filepath);

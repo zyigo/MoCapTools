@@ -9,17 +9,21 @@ classdef MotionData
     end
     
     methods
-        function [obj,trial] = MotionData(amcFile)
+        function [obj,trial] = MotionData(amcFile, skeleton)
             %MOTIONDATA Construct an instance of this class
             %   Detailed explanation goes here
-            file = ImportAMCFile(amcFile);
+            obj = PrepDataMap(obj,skeleton);
+            data = ImportAMCFile(amcFile);
             trial = GetTrialID(amcFile);
-            obj = ParseAMCFile(obj, file, trial);
+            obj = ParseAMCFile(obj, data, trial);
         end
     end
     
     methods (Access = private)
-        
+        trial = GetTrialID(filepath);
+        data = ImportAMCFile(filepath);
+        obj = ParseAMCFile(obj, data, trial)
+        obj = PrepDataMap(obj, skeleton);
     end
 end
 

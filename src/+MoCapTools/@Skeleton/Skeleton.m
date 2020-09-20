@@ -2,7 +2,7 @@ classdef (Sealed) Skeleton < matlab.mixin.SetGet
     %SKELETON Summary of this class goes here
     %   Detailed explanation goes here
     
-    properties
+    properties (SetAccess = private)
         Mass(1,1) double {mustBeReal, mustBeFinite}
         Length(1,1) double {mustBeReal, mustBeFinite}
         AngleType(1,:) char {mustBeMember(AngleType,{'deg','rad'})} = 'deg'
@@ -41,7 +41,7 @@ classdef (Sealed) Skeleton < matlab.mixin.SetGet
         end
         
         function obj = AddMotion(obj, amcFile)
-            [motion,trial] = MoCapTools.MotionData(amcFile);
+            [motion,trial] = MoCapTools.MotionData(amcFile, obj);
             obj.MotionData(trial) = motion;
         end
         
@@ -52,9 +52,8 @@ classdef (Sealed) Skeleton < matlab.mixin.SetGet
         end
         
         function children = JointChildren(obj,joint)
-            if isKey(obj.Joints,char(joint))
-                error('%s is not a joint in the skeleton',joint);
-            end
+            assert(isKey(obj.Joints,char(joint)),...
+                '%s is not a joint in the skeleton',joint)
             children = obj.Joints(joint);
         end
     end

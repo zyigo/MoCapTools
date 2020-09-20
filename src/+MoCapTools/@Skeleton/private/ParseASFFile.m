@@ -30,9 +30,7 @@ obj = GetBoneData(obj,bonedataIndex,index,file);
 end
 
 function obj = GetHierarchyData(obj, n,index, file)
-if n > length(index)
-    error('Indexing error when loading hierarchy data section.');
-end
+assert(n <= length(index),'Indexing error when loading hierarchy data section.');
 
 if n == length(index)
     hier = string(file(index(n)+1:end,:));
@@ -79,9 +77,7 @@ function obj = GetBoneData(obj, n, index, file)
 %   n is current row
 %   index is the index array of the asf ":" section headers
 %   file is the string array constructed using IMPORTFILE.
-if n >= length(index)
-    error('Indexing error when loading bone data section.');
-end
+assert(n < length(index),'Indexing error when loading bone data section.');
 
 lLim = index(n)+1;
 
@@ -95,11 +91,8 @@ bd = string(file(lLim:b,:));
 bd = strtrim(bd);
 bdBegin = find(bd == "begin");
 bdEnd = find(bd == "end");
-if length(bdBegin) ~= length(bdEnd)
-    error('Bone Data is missing a "begin" or an "end" string');
-end
 
-
+assert(length(bdBegin) == length(bdEnd),'Bone Data is missing a "begin" or an "end" string');
 
 for i = 1:length(bdBegin)
     strs = bd(bdBegin(i)+1:bdEnd(i)-1);
@@ -177,10 +170,7 @@ function str = GetGenericString(n, index, file)
 %   n is current row
 %   index is the index array of the asf ":" section headers
 %   file is the string array constructed using IMPORTFILE.
-
-if n >= length(index)
-    error('Indexing error when reading generic string section (likely the version or name sections).');
-end
+assert(n < length(index),'Indexing error when reading generic string section (likely the version or name sections).');
 
 str = extractAfter(file(index(n),2:end),' ');
 str = strtrim(str);
@@ -191,10 +181,7 @@ function obj = GetDocumentation(obj, n, index, file)
 %   n is current row
 %   index is the index array of the asf ":" section headers
 %   file is the string array constructed using IMPORTFILE.
-
-if n >= length(index)
-    error('Indexing error when reading documentation section.');
-end
+assert(n < length(index), 'Indexing error when reading documentation section.');
 
 a = index(n)+1;
 
@@ -215,9 +202,7 @@ function obj = GetUnits(obj, n, index, file)
 %   index is the index array of the asf ":" section headers
 %   file is the string array constructed using IMPORTFILE.
 
-if n >= length(index)
-    error('Indexing error when reading unit section.');
-end
+assert(n < length(index),'Indexing error when reading unit section.')
 
 a = index(n)+1;
 
@@ -256,10 +241,7 @@ function obj = GetRoot(obj, n, index, file)
 %   n is current row
 %   index is the index array of the asf ":" section headers
 %   file is the string array constructed using IMPORTFILE.
-
-if n >= length(index)
-    error('Indexing error when root unit section.');
-end
+assert(n < length(index), 'Indexing error when root unit section.');
 
 a = index(n)+1;
 
@@ -275,9 +257,7 @@ for r = 1:length(rt)
     switch strtok(rt(r))
         case "order"
             ord = lower(split(strtrim(rd(r)),' ')');
-            if length(ord) ~= 6
-                error('Order not defined correctly')
-            end
+            assert(length(ord) == 6,'Order not defined correctly')
             obj.TranslationOrder = strrep(char(join(ord(1:3),'')),'t','');
             obj.RotationOrder = strrep(char(join(ord(4:6),'')),'r','');
         case "axis"
